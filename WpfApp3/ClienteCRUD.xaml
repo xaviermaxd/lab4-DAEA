@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp3.ClienteCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="ClienteCRUD" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="229,10,195,10">
+            <TextBox x:Name="txtFilter" Width="200" />
+            <Button Content="Mostrar" Margin="10,0,0,0" Click="Button_Click"/>
+            <Button Content="Registrar" Margin="10,0,0,0" Click="Registrar_Click"/>
+        </StackPanel>
+
+        <!--<DataGrid x:Name="dataGrid" Grid.Row="1" Margin="26,0,20,22"/>-->
+        <DataGrid x:Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <!-- Tus otras columnas aquí -->
+                <DataGridTextColumn Header="IdEmpleado" Binding="{Binding IdEmpleado}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="cargo" Binding="{Binding cargo}"/>
+                <DataGridTextColumn Header="Tratamiento" Binding="{Binding Tratamiento}"/>
+
+                <!-- Columna de botones -->
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Editar" Click="Editar_Click"/>
+                                <Button Content="Eliminar" Click="Eliminar_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
